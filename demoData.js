@@ -3,27 +3,37 @@ var demofile = require("demofile");
 
 const events = {
   demo: {
-    GAME_END: "cs_win_panel_match"
+    GAME_END: "end",
+    GAME_START: "start"
   },
 
   game: {
     PLAYER_HURT: "player_hurt",
-    PLAYER_BLIND: "player_blind"
+    PLAYER_BLIND: "player_blind",
+    PLAYER_DAMAGED: "e.dmg_health"
   },
 
-  entities: {
-    GRENADE_DETONATE: "hegrenade_detonate",
+  detonations: {
+    HEGRENADE_DETONATE: "hegrenade_detonate",
     FLASHBANG_DETONATE: "flashbang_detonate",
     SMOKE_DETONATE: "smokegrenade_detonate",
     MOLOTOV_DETONATE: "molotov_detonate"
+  },
+
+  grenades: {
+    HEGRENADE: "weapon_hegrenade",
+    FLASHBANG: "weapon_flashbang",
+    SMOKE: "weapon_smokegrenade",
+    MOLOTOV: "weapon_molotov"
   }
 }
 
+// File valdiation declarations
 var fileAmount = [];
 const allowedFile = ".dem";
-const filepath = "demo/";
+const demoFilepath = "demo/";
 
-fs.readdir(filepath, function (err, files) {
+fs.readdir(demoFilepath, function (err, files) {
   if (err) {
     console.log(err);
     return;
@@ -58,42 +68,63 @@ fs.readFile("demo/test.dem", (err, buffer) => {
   let demoFile = new demofile.DemoFile();
 
   if (err) {
-    console.log(err);
+    console.log("Demo file failed to load: " + err);
     return;
   }
 
+  // Variables for JSON export
+  var grenadesThrown = 0;
+  const current_nade = null;
+  let nades = {};
+
   // Demo start
   demoFile.on("start", () => {
+    console.log('=> Parsing...');
+    var mapID = demoFile.header.mapName;
 
-    // Shows the demo files map
-    console.log("Map:", demoFile.header.mapName + "\n");
-
-    // Stop parsing
-    demoFile.cancel();
+    // Main data array
+    nades[current_nade] = {
+      'map': '',
+      'type': '',
+      'grenadeid': grenadesThrown,
+      'damage': {},
+      'coordinates': {}
+    }
+    nades[current_nade]['map'] = mapID; // Write current map
   });
 
-  var grenades = 0;
-  
-  // Grenade detonate event
-  demoFile.gameEvents.on(events.entities.GRENADE_DETONATE, e => {
-    
-    // Event listeners for X and Y coordinates for HE Grenades
-    var grenadesx = e.x;
-    var grenadesy = e.y;
+  // HE grenade detonation
+  demoFile.gameEvents.on(events.detonations.HEGRENADE_DETONATE, function(e) {
 
-    // Adds 1 to grenade count
-    grenades++;
+    // Adds 1 to grenade count and pushes
+    grenadesThrown++;
+    nades[current_nade]['grenadeid'] = grenadesThrown;
 
-    // Debug
-    console.log("Grenades thrown: " + grenades);
-    console.log("X: " + parseFloat(grenadesx).toFixed(2));
-    console.log("Y: " + parseFloat(grenadesy).toFixed(2) + "\n");
+    // Write coordinates
+    nades[current_nade]['coordinates'] = {x: e.x, y: e.y};
+  });
 
+  // Grenade damage
+  demoFile.gameEvents.on(events.game.PLAYER_HURT, function(e) {
+    if (e.weapon = 'weapon_hegrenade'){
+      nades[current_nade]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Write damage done
+      nades[current_nade]['type'] = e.weapon; // Write grenade type
+    }
   });
 
   // Match over
-  demoFile.gameEvents.on(events.demo.GAME_END, e => {
-    process.exit()
+  demoFile.on(events.demo.GAME_END, function() {
+    console.log('<= Parsed');
+
+    var jsonExport = JSON.stringify(nades, null, '\t'); // Prepares the data array for JSON export
+
+    fs.writeFile("json/demoData.json", jsonExport, function(err) { // Writes JSON
+      if(err) {
+          return console.log(err);
+      } else {
+        console.log("File saved successfully!");
+      }
+    });
   });
 
   demoFile.parse(buffer);
