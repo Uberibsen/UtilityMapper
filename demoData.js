@@ -74,49 +74,51 @@ fs.readFile("demo/test.dem", (err, buffer) => {
 
   // Variables for JSON export
   var grenadesThrown = 0;
-  const current_nade = null;
-  let nades = {};
+  const header = "Grenade Data";
+  let nadeData = {};
 
   // Demo start
   demoFile.on("start", () => {
-    console.log('=> Parsing...');
+    console.log("=> Parsing...");
     var mapID = demoFile.header.mapName;
 
     // Main data array
-    nades[current_nade] = {
-      'map': '',
-      'type': '',
-      'grenadeid': grenadesThrown,
-      'damage': {},
-      'coordinates': {}
+    nadeData[header] = {
+      "map": "",
+      "type": "",
+      "data": {
+        "grenadeid": "",
+        "damage": {},
+        "coordinates": {}
+      }
     }
-    nades[current_nade]['map'] = mapID; // Write current map
+    nadeData[header]["map"] = mapID; // Write current map
   });
 
   // HE grenade detonation
   demoFile.gameEvents.on(events.detonations.HEGRENADE_DETONATE, function(e) {
 
-    // Adds 1 to grenade count and pushes
+    // Adds 1 to grenade count and write
     grenadesThrown++;
-    nades[current_nade]['grenadeid'] = grenadesThrown;
+    nadeData[header]['data']['grenadeid'] = grenadesThrown;
 
     // Write coordinates
-    nades[current_nade]['coordinates'] = {x: e.x, y: e.y};
+    nadeData[header]['data']['coordinates'] = {x: e.x, y: e.y};
   });
 
   // Grenade damage
   demoFile.gameEvents.on(events.game.PLAYER_HURT, function(e) {
-    if (e.weapon = 'weapon_hegrenade'){
-      nades[current_nade]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Write damage done
-      nades[current_nade]['type'] = e.weapon; // Write grenade type
+    if (e.weapon = "weapon_hegrenade"){
+      nadeData[header]['data']['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Write damage done
+      nadeData[header]['type'] = e.weapon; // Write grenade type
     }
   });
 
   // Match over
   demoFile.on(events.demo.GAME_END, function() {
-    console.log('<= Parsed');
+    console.log("<= Parsed");
 
-    var jsonExport = JSON.stringify(nades, null, '\t'); // Prepares the data array for JSON export
+    var jsonExport = JSON.stringify(nadeData, null, '\t'); // Prepares the data array for JSON export
 
     fs.writeFile("json/demoData.json", jsonExport, function(err) { // Writes JSON
       if(err) {
