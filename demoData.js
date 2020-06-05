@@ -10,7 +10,6 @@ const events = {
   game: {
     PLAYER_HURT: "player_hurt",
     PLAYER_BLIND: "player_blind",
-    PLAYER_DAMAGED: "e.dmg_health"
   },
 
   detonations: {
@@ -51,81 +50,69 @@ fs.readdir(demoFilepath, function (err, files) {
     if (fileAmount.length > 1){ // Checks if there is multiple files in the folder
       console.log("Too many files. Only use one file.") 
       process.exit();
-    }
+    };
 
-    for (i = 0; i < fileAmount.length; i++) { // For each file in the array
-      if (fileAmount[i].includes(allowedFile)){ // check if the file is the correct format
+    for (i = 0; i < fileAmount.length; i++) { // For each file in the array...
+      if (fileAmount[i].includes(allowedFile)){ // ...check if the file is the correct file type
         console.log("Demo file loaded.");
       } else {
         console.log("Wrong fileformat. Use .dem files only.")
         process.exit();
-      }
-    }
+      };
+    };
   });
 });
 
-fs.readFile("demo/test.dem", (err, buffer) => {
-  let demoFile = new demofile.DemoFile();
+fs.readFile('demo/test.dem', (err, buffer) => {
+	const demoFile = new demofile.DemoFile();
+	if (err) {
+		console.log(err);
+		return;
+  };
 
-  if (err) {
-    console.log("Demo file failed to load: " + err);
-    return;
-  }
+	// JSON variables
+  let grenade_number = 0;
+  let data = {};
 
-  // Variables for JSON export
-  var grenadesThrown = 0;
-  const header = "Grenade Data";
-  let nadeData = {};
-
-  // Demo start
-  demoFile.on("start", () => {
-    console.log("=> Parsing...");
-    var mapID = demoFile.header.mapName;
-
-    // Main data array
-    nadeData[header] = {
-      "map": "",
-      "type": "",
-      "data": {
-        "grenadeid": "",
-        "damage": {},
-        "coordinates": {}
-      }
-    }
-    nadeData[header]["map"] = mapID; // Write current map
+	// Demo start
+	demoFile.on(events.demo.GAME_START, function(e) {
+    console.log('=> parsing...');
   });
 
-  // HE grenade detonation
-  demoFile.gameEvents.on(events.detonations.HEGRENADE_DETONATE, function(e) {
+	// Grenade detonations
+	demoFile.gameEvents.on(events.detonations.HEGRENADE_DETONATE, function(e) {
+    grenade_number++; // Add one to the grenade count
+    
+    // Data array
+		data[grenade_number] = {
+      'grenade_type': '',
+      'coordinates': {},
+      'damage': {}
+    };
+    
+    data[grenade_number]['coordinates'] = {x: e.x, y: e.y, z: e.z}; // Adds coordinates for detonation
+    data[grenade_number]['damage'] = {health: 0, armor: 0}; // Dummy data for damage done. Remains zero of no damage is done
 
-    // Adds 1 to grenade count and write
-    grenadesThrown++;
-    nadeData[header]['data']['grenadeid'] = grenadesThrown;
-
-    // Write coordinates
-    nadeData[header]['data']['coordinates'] = {x: e.x, y: e.y};
-  });
-
-  // Grenade damage
-  demoFile.gameEvents.on(events.game.PLAYER_HURT, function(e) {
-    if (e.weapon = "weapon_hegrenade"){
-      nadeData[header]['data']['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Write damage done
-      nadeData[header]['type'] = e.weapon; // Write grenade type
-    }
+    demoFile.gameEvents.on(events.game.PLAYER_HURT, function(e){
+      if (e.weapon = 'weapon_hegrenade'){
+        data[grenade_number]['grenade_type'] = e.weapon; // Adds grenade type
+        data[grenade_number]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Replaces dummy data, if the grenade did any damage
+      };
+    });
   });
 
   // Match over
-  demoFile.on(events.demo.GAME_END, function() {
+  demoFile.on(events.demo.GAME_END, function(err) {
     console.log("<= Parsed");
 
-    var jsonExport = JSON.stringify(nadeData, null, '\t'); // Prepares the data array for JSON export
+    var jsonExport = JSON.stringify(data, null, '\t'); // Prepares the data array for JSON export
 
     fs.writeFile("json/demoData.json", jsonExport, function(err) { // Writes JSON
       if(err) {
           return console.log(err);
       } else {
         console.log("File saved successfully!");
-      }
+      };
     });
   });
 
