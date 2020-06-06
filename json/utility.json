@@ -1,0 +1,614 @@
+{
+	"1": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 119.05130004882812,
+			"y": 1079.84228515625,
+			"z": 135.84947204589844
+		},
+		"damage": {
+			"health": 127,
+			"armor": 0
+		}
+	},
+	"2": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 142.3720245361328,
+			"y": 1147.42919921875,
+			"z": 130.67105102539062
+		},
+		"damage": {
+			"health": 3,
+			"armor": 1
+		}
+	},
+	"3": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 113.9447021484375,
+			"y": 1165.4659423828125,
+			"z": 160.50685119628906
+		},
+		"damage": {
+			"health": 66,
+			"armor": 32
+		}
+	},
+	"4": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 508.71710205078125,
+			"y": 1977.5665283203125,
+			"z": 128
+		},
+		"damage": {
+			"health": 25,
+			"armor": 0
+		}
+	},
+	"5": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 112.82273864746094,
+			"y": 1571.9556884765625,
+			"z": 113.77278137207031
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"6": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 813.1942138671875,
+			"y": 395.39697265625,
+			"z": 112.47618865966797
+		},
+		"damage": {
+			"health": 1,
+			"armor": 0
+		}
+	},
+	"7": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 268.4063415527344,
+			"y": 732.0233764648438,
+			"z": 43.68510437011719
+		},
+		"damage": {
+			"health": 22,
+			"armor": 4
+		}
+	},
+	"8": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 683.212646484375,
+			"y": 2051.34326171875,
+			"z": 136.48887634277344
+		},
+		"damage": {
+			"health": 9,
+			"armor": 0
+		}
+	},
+	"9": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 71.1803207397461,
+			"y": 700.51171875,
+			"z": 78.9091567993164
+		},
+		"damage": {
+			"health": 35,
+			"armor": 0
+		}
+	},
+	"10": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 281.7568359375,
+			"y": 1531.77880859375,
+			"z": 119.32160186767578
+		},
+		"damage": {
+			"health": 111,
+			"armor": 16
+		}
+	},
+	"11": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": -84.32264709472656,
+			"y": 1391.4044189453125,
+			"z": 158.3177490234375
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"12": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1124.2269287109375,
+			"y": -378.99639892578125,
+			"z": 258.03125
+		},
+		"damage": {
+			"health": 108,
+			"armor": 15
+		}
+	},
+	"13": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 2320.2900390625,
+			"y": -102.35730743408203,
+			"z": 126.61880493164062
+		},
+		"damage": {
+			"health": 1,
+			"armor": 0
+		}
+	},
+	"14": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1293.508544921875,
+			"y": 290.9982604980469,
+			"z": 161.62010192871094
+		},
+		"damage": {
+			"health": 22,
+			"armor": 4
+		}
+	},
+	"15": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 135.96658325195312,
+			"y": 981.5902709960938,
+			"z": 160.213134765625
+		},
+		"damage": {
+			"health": 108,
+			"armor": 15
+		}
+	},
+	"16": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 2597.869140625,
+			"y": -121.83906555175781,
+			"z": 132.61105346679688
+		},
+		"damage": {
+			"health": 24,
+			"armor": 1
+		}
+	},
+	"17": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 81.9875259399414,
+			"y": 1146.6153564453125,
+			"z": 164.34420776367188
+		},
+		"damage": {
+			"health": 33,
+			"armor": 4
+		}
+	},
+	"18": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1517.3975830078125,
+			"y": 149.5853729248047,
+			"z": 146.9324493408203
+		},
+		"damage": {
+			"health": 6,
+			"armor": 0
+		}
+	},
+	"19": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 921.077392578125,
+			"y": 2037.552001953125,
+			"z": 142.03125
+		},
+		"damage": {
+			"health": 98,
+			"armor": 5
+		}
+	},
+	"20": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 714.3263549804688,
+			"y": 2716.705078125,
+			"z": 149.1209259033203
+		},
+		"damage": {
+			"health": 27,
+			"armor": 5
+		}
+	},
+	"21": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 114.73980712890625,
+			"y": 1116.791259765625,
+			"z": 182.9711151123047
+		},
+		"damage": {
+			"health": 24,
+			"armor": 0
+		}
+	},
+	"22": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 334.1570739746094,
+			"y": 2047.6591796875,
+			"z": 139.47933959960938
+		},
+		"damage": {
+			"health": 3,
+			"armor": 0
+		}
+	},
+	"23": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 77.6051025390625,
+			"y": 653.4518432617188,
+			"z": 74.88378143310547
+		},
+		"damage": {
+			"health": 27,
+			"armor": 3
+		}
+	},
+	"24": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 164.68008422851562,
+			"y": 1617.0975341796875,
+			"z": 115.6422348022461
+		},
+		"damage": {
+			"health": 26,
+			"armor": 3
+		}
+	},
+	"25": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 29.740928649902344,
+			"y": 731.3530883789062,
+			"z": 71.98533630371094
+		},
+		"damage": {
+			"health": 10,
+			"armor": 3
+		}
+	},
+	"26": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": -72.58316802978516,
+			"y": 1397.0709228515625,
+			"z": 136.61329650878906
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"27": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 969.76220703125,
+			"y": 585.5007934570312,
+			"z": 90.41561126708984
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"28": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": -80.07508087158203,
+			"y": 1423.57763671875,
+			"z": 157.31210327148438
+		},
+		"damage": {
+			"health": 27,
+			"armor": 4
+		}
+	},
+	"29": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1511.01220703125,
+			"y": 1132.9749755859375,
+			"z": 171.30343627929688
+		},
+		"damage": {
+			"health": 22,
+			"armor": 4
+		}
+	},
+	"30": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 821.2536010742188,
+			"y": 2375.61669921875,
+			"z": 243.11727905273438
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"31": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 327.2854309082031,
+			"y": 1787.142822265625,
+			"z": 127.0820083618164
+		},
+		"damage": {
+			"health": 22,
+			"armor": 4
+		}
+	},
+	"32": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 22.332565307617188,
+			"y": 723.0955810546875,
+			"z": 75.88949584960938
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"33": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 4.196014404296875,
+			"y": 1322.7652587890625,
+			"z": 119.96575164794922
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"34": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": -78.48208618164062,
+			"y": 1419.3873291015625,
+			"z": 143.70303344726562
+		},
+		"damage": {
+			"health": 186,
+			"armor": 6
+		}
+	},
+	"35": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 985.282470703125,
+			"y": 2651.647705078125,
+			"z": 137.1134796142578
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"36": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1006.9088134765625,
+			"y": 2645.43408203125,
+			"z": 168.8010711669922
+		},
+		"damage": {
+			"health": 84,
+			"armor": 18
+		}
+	},
+	"37": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 532.6253051757812,
+			"y": 2723.74658203125,
+			"z": 167.1636505126953
+		},
+		"damage": {
+			"health": 105,
+			"armor": 0
+		}
+	},
+	"38": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1275.5618896484375,
+			"y": -201.3078155517578,
+			"z": 272.52911376953125
+		},
+		"damage": {
+			"health": 90,
+			"armor": 19
+		}
+	},
+	"39": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1645.009765625,
+			"y": 2862.79833984375,
+			"z": 141.7422332763672
+		},
+		"damage": {
+			"health": 37,
+			"armor": 12
+		}
+	},
+	"40": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 495.24639892578125,
+			"y": 2711.1162109375,
+			"z": 175.91505432128906
+		},
+		"damage": {
+			"health": 1,
+			"armor": 0
+		}
+	},
+	"41": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 173.24371337890625,
+			"y": 1198.635498046875,
+			"z": 116.93810272216797
+		},
+		"damage": {
+			"health": 33,
+			"armor": 0
+		}
+	},
+	"42": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1209.0880126953125,
+			"y": 163.21243286132812,
+			"z": 258.1207580566406
+		},
+		"damage": {
+			"health": 34,
+			"armor": 4
+		}
+	},
+	"43": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 807.9427490234375,
+			"y": 1888.7115478515625,
+			"z": 160.973876953125
+		},
+		"damage": {
+			"health": 171,
+			"armor": 6
+		}
+	},
+	"44": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 572.2401733398438,
+			"y": 3470.04345703125,
+			"z": 174.16070556640625
+		},
+		"damage": {
+			"health": 153,
+			"armor": 13
+		}
+	},
+	"45": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1217.500732421875,
+			"y": 345.0003662109375,
+			"z": 221.51516723632812
+		},
+		"damage": {
+			"health": 41,
+			"armor": 13
+		}
+	},
+	"46": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1224.0130615234375,
+			"y": 193.46279907226562,
+			"z": 230.404541015625
+		},
+		"damage": {
+			"health": 22,
+			"armor": 0
+		}
+	},
+	"47": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 713.2872314453125,
+			"y": 2506.059814453125,
+			"z": 201.39279174804688
+		},
+		"damage": {
+			"health": 71,
+			"armor": 6
+		}
+	},
+	"48": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1613.7764892578125,
+			"y": 2098.423583984375,
+			"z": 178.20018005371094
+		},
+		"damage": {
+			"health": 109,
+			"armor": 1
+		}
+	},
+	"49": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1233.4012451171875,
+			"y": 248.6746368408203,
+			"z": 227.75706481933594
+		},
+		"damage": {
+			"health": 0,
+			"armor": 0
+		}
+	},
+	"50": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1214.5419921875,
+			"y": 143.1967315673828,
+			"z": 257.3327331542969
+		},
+		"damage": {
+			"health": 22,
+			"armor": 4
+		}
+	},
+	"51": {
+		"grenade_type": "hegrenade",
+		"coordinates": {
+			"x": 1461.556884765625,
+			"y": 381.3326721191406,
+			"z": 133.78744506835938
+		},
+		"damage": {
+			"health": 15,
+			"armor": 0
+		}
+	}
+}

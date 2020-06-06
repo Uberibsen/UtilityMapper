@@ -1,0 +1,15 @@
+{
+	"Demo header": {
+		"magic": "HL2DEMO",
+		"protocol": 4,
+		"networkProtocol": 13749,
+		"serverName": "FACEIT.com register to play here",
+		"clientName": "GOTV Demo",
+		"mapName": "de_inferno",
+		"gameDirectory": "csgo",
+		"playbackTime": 2045.0390625,
+		"playbackTicks": 261765,
+		"playbackFrames": 130546,
+		"signonLength": 450156
+	}
+}

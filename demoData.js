@@ -72,11 +72,16 @@ fs.readFile('demo/test.dem', (err, buffer) => {
 
 	// JSON variables
   let grenade_number = 0;
-  let data = {};
+  let utilityData = {};
+  let demoInfo = {};
 
 	// Demo start
 	demoFile.on(events.demo.GAME_START, function(e) {
     console.log('=> parsing...');
+
+    demoInfo = {
+      'Demo information': demoFile.header
+    };
   });
 
 	// Grenade detonations
@@ -84,19 +89,19 @@ fs.readFile('demo/test.dem', (err, buffer) => {
     grenade_number++; // Add one to the grenade count
     
     // Data array
-		data[grenade_number] = {
+		utilityData[grenade_number] = {
       'grenade_type': '',
       'coordinates': {},
       'damage': {}
     };
     
-    data[grenade_number]['coordinates'] = {x: e.x, y: e.y, z: e.z}; // Adds coordinates for detonation
-    data[grenade_number]['damage'] = {health: 0, armor: 0}; // Dummy data for damage done. Remains zero of no damage is done
+    utilityData[grenade_number]['grenade_type'] = 'hegrenade'; // Adds grenade type
+    utilityData[grenade_number]['coordinates'] = {x: e.x, y: e.y, z: e.z}; // Adds coordinates for detonation
+    utilityData[grenade_number]['damage'] = {health: 0, armor: 0}; // Dummy data for damage done. Remains zero of no damage is done
 
     demoFile.gameEvents.on(events.game.PLAYER_HURT, function(e){
       if (e.weapon = 'weapon_hegrenade'){
-        data[grenade_number]['grenade_type'] = e.weapon; // Adds grenade type
-        data[grenade_number]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Replaces dummy data, if the grenade did any damage
+        utilityData[grenade_number]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Replaces dummy data, if the grenade did any damage
       };
     });
   });
@@ -105,14 +110,17 @@ fs.readFile('demo/test.dem', (err, buffer) => {
   demoFile.on(events.demo.GAME_END, function(err) {
     console.log("<= Parsed");
 
-    var jsonExport = JSON.stringify(data, null, '\t'); // Prepares the data array for JSON export
-
-    fs.writeFile("json/demoData.json", jsonExport, function(err) { // Writes JSON
-      if(err) {
+    var utilityExport = JSON.stringify(utilityData, null, '\t'); // Prepares the utility array for JSON export
+    var demoExport = JSON.stringify(demoInfo, null, '\t'); // Prepares the demo info array for JSON export
+    
+    fs.writeFile("json/utility.json", utilityExport, function() { // Writes JSON  
+      fs.writeFile("json/demo.json", demoExport, function(err) {
+        if(err) {
           return console.log(err);
-      } else {
-        console.log("File saved successfully!");
-      };
+        } else {
+          console.log("Files saved successfully!");
+        };
+      });   
     });
   });
 
