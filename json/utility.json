@@ -1,5 +1,6 @@
 {
-	"1": {
+	"344caf3d-42a5-458a-bc61-8314bc31d5c8": {
+		"grenade_count": 1,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 119.05130004882812,
@@ -11,7 +12,8 @@
 			"armor": 0
 		}
 	},
-	"2": {
+	"562a72fb-27e1-4c7a-9083-ddc55d04cd53": {
+		"grenade_count": 2,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 142.3720245361328,
@@ -23,7 +25,8 @@
 			"armor": 1
 		}
 	},
-	"3": {
+	"7159cb51-89d2-4c82-895b-a75281980134": {
+		"grenade_count": 3,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 113.9447021484375,
@@ -35,7 +38,8 @@
 			"armor": 32
 		}
 	},
-	"4": {
+	"5a9ceb49-a51c-40b4-9d98-10a708687852": {
+		"grenade_count": 4,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 508.71710205078125,
@@ -47,7 +51,8 @@
 			"armor": 0
 		}
 	},
-	"5": {
+	"6986035a-75ea-475f-a1c5-f86cdfd4045b": {
+		"grenade_count": 5,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 112.82273864746094,
@@ -59,7 +64,8 @@
 			"armor": 0
 		}
 	},
-	"6": {
+	"83047f5f-c176-4d80-bbf7-98aaf31c16be": {
+		"grenade_count": 6,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 813.1942138671875,
@@ -71,7 +77,8 @@
 			"armor": 0
 		}
 	},
-	"7": {
+	"be6add13-6baa-47de-97c7-8f5db078b663": {
+		"grenade_count": 7,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 268.4063415527344,
@@ -83,7 +90,8 @@
 			"armor": 4
 		}
 	},
-	"8": {
+	"929fe560-b440-4fe7-8e8f-9776851b4a68": {
+		"grenade_count": 8,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 683.212646484375,
@@ -95,7 +103,8 @@
 			"armor": 0
 		}
 	},
-	"9": {
+	"a5f6774b-f732-4d46-9230-6a61b0ab5025": {
+		"grenade_count": 9,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 71.1803207397461,
@@ -107,7 +116,8 @@
 			"armor": 0
 		}
 	},
-	"10": {
+	"55255b50-1e9b-491d-a4ec-8e8bcc808e33": {
+		"grenade_count": 10,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 281.7568359375,
@@ -119,7 +129,8 @@
 			"armor": 16
 		}
 	},
-	"11": {
+	"7872c462-fdcd-45b4-bd52-d79309d030a1": {
+		"grenade_count": 11,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": -84.32264709472656,
@@ -131,7 +142,8 @@
 			"armor": 0
 		}
 	},
-	"12": {
+	"6307ba3a-e963-42a4-9555-4f97336508ef": {
+		"grenade_count": 12,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1124.2269287109375,
@@ -143,7 +155,8 @@
 			"armor": 15
 		}
 	},
-	"13": {
+	"d2af486d-1551-4ed7-a38b-7e2f13c0dddb": {
+		"grenade_count": 13,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 2320.2900390625,
@@ -155,7 +168,8 @@
 			"armor": 0
 		}
 	},
-	"14": {
+	"09489c45-4828-4dfd-856e-60cdcf0c1b09": {
+		"grenade_count": 14,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1293.508544921875,
@@ -167,7 +181,8 @@
 			"armor": 4
 		}
 	},
-	"15": {
+	"338c1151-8284-4dd4-820e-23956df79116": {
+		"grenade_count": 15,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 135.96658325195312,
@@ -179,7 +194,8 @@
 			"armor": 15
 		}
 	},
-	"16": {
+	"1b65e746-2b41-4122-96ac-d9bb0179b7d7": {
+		"grenade_count": 16,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 2597.869140625,
@@ -191,7 +207,8 @@
 			"armor": 1
 		}
 	},
-	"17": {
+	"4e07c360-3f1c-487e-b3f5-1a1b025e25b0": {
+		"grenade_count": 17,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 81.9875259399414,
@@ -203,7 +220,8 @@
 			"armor": 4
 		}
 	},
-	"18": {
+	"bf890773-761d-4f61-a237-8ecbcc6dfbb4": {
+		"grenade_count": 18,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1517.3975830078125,
@@ -215,7 +233,8 @@
 			"armor": 0
 		}
 	},
-	"19": {
+	"b6489503-0c16-4d85-b080-a6e7464cf0a9": {
+		"grenade_count": 19,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 921.077392578125,
@@ -227,7 +246,8 @@
 			"armor": 5
 		}
 	},
-	"20": {
+	"218497eb-79eb-4efb-9d94-07f89f4e9c75": {
+		"grenade_count": 20,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 714.3263549804688,
@@ -239,7 +259,8 @@
 			"armor": 5
 		}
 	},
-	"21": {
+	"c8b71b35-1a92-4b6c-a58b-36d542056dae": {
+		"grenade_count": 21,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 114.73980712890625,
@@ -251,7 +272,8 @@
 			"armor": 0
 		}
 	},
-	"22": {
+	"4f118fdf-9586-4cc5-a1b2-fba3e6c84754": {
+		"grenade_count": 22,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 334.1570739746094,
@@ -263,7 +285,8 @@
 			"armor": 0
 		}
 	},
-	"23": {
+	"42c06bc8-f24f-4306-906e-07bc92fd79f8": {
+		"grenade_count": 23,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 77.6051025390625,
@@ -275,7 +298,8 @@
 			"armor": 3
 		}
 	},
-	"24": {
+	"67f70b6e-dc0e-42ba-aec2-97e345bdceba": {
+		"grenade_count": 24,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 164.68008422851562,
@@ -287,7 +311,8 @@
 			"armor": 3
 		}
 	},
-	"25": {
+	"a733343f-beb9-48c9-afb1-93b8c1f417ea": {
+		"grenade_count": 25,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 29.740928649902344,
@@ -299,7 +324,8 @@
 			"armor": 3
 		}
 	},
-	"26": {
+	"60ac98d4-de5c-4b47-992d-1e2c376265e1": {
+		"grenade_count": 26,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": -72.58316802978516,
@@ -311,7 +337,8 @@
 			"armor": 0
 		}
 	},
-	"27": {
+	"aab8ed8e-22f0-4552-bf0f-bd7f7153524f": {
+		"grenade_count": 27,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 969.76220703125,
@@ -323,7 +350,8 @@
 			"armor": 0
 		}
 	},
-	"28": {
+	"14a0133e-46f6-4222-8f63-ff54e0ff27f9": {
+		"grenade_count": 28,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": -80.07508087158203,
@@ -335,7 +363,8 @@
 			"armor": 4
 		}
 	},
-	"29": {
+	"9dc2ecd6-0c47-422a-bc8c-a3985867bc41": {
+		"grenade_count": 29,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1511.01220703125,
@@ -347,7 +376,8 @@
 			"armor": 4
 		}
 	},
-	"30": {
+	"b69db93b-554d-466c-b890-337f5a624d44": {
+		"grenade_count": 30,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 821.2536010742188,
@@ -359,7 +389,8 @@
 			"armor": 0
 		}
 	},
-	"31": {
+	"1d018deb-ad49-408a-b0e8-aac69c7fd6ae": {
+		"grenade_count": 31,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 327.2854309082031,
@@ -371,7 +402,8 @@
 			"armor": 4
 		}
 	},
-	"32": {
+	"91273811-4bd9-4429-a548-548683e0bd26": {
+		"grenade_count": 32,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 22.332565307617188,
@@ -383,7 +415,8 @@
 			"armor": 0
 		}
 	},
-	"33": {
+	"d4448907-1cfe-4790-b1bb-e4c964793cc5": {
+		"grenade_count": 33,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 4.196014404296875,
@@ -395,7 +428,8 @@
 			"armor": 0
 		}
 	},
-	"34": {
+	"7d66ec18-3be4-4ae9-9a7f-99f232b9a429": {
+		"grenade_count": 34,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": -78.48208618164062,
@@ -407,7 +441,8 @@
 			"armor": 6
 		}
 	},
-	"35": {
+	"a1ea4bc2-2349-42b7-b7ab-983db38a971c": {
+		"grenade_count": 35,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 985.282470703125,
@@ -419,7 +454,8 @@
 			"armor": 0
 		}
 	},
-	"36": {
+	"4d36bd67-126c-4728-a175-fde51a645ee2": {
+		"grenade_count": 36,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1006.9088134765625,
@@ -431,7 +467,8 @@
 			"armor": 18
 		}
 	},
-	"37": {
+	"be4f6dc7-9a4d-4dae-86e7-1ebea3e96097": {
+		"grenade_count": 37,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 532.6253051757812,
@@ -443,7 +480,8 @@
 			"armor": 0
 		}
 	},
-	"38": {
+	"64d54902-3872-41f5-9198-f1ad56c86346": {
+		"grenade_count": 38,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1275.5618896484375,
@@ -455,7 +493,8 @@
 			"armor": 19
 		}
 	},
-	"39": {
+	"926adf4d-b14d-4dcf-8d4a-57f86be50d70": {
+		"grenade_count": 39,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1645.009765625,
@@ -467,7 +506,8 @@
 			"armor": 12
 		}
 	},
-	"40": {
+	"b11b4538-f650-45ac-ac53-6abcc9270ee3": {
+		"grenade_count": 40,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 495.24639892578125,
@@ -479,7 +519,8 @@
 			"armor": 0
 		}
 	},
-	"41": {
+	"e1f50f6e-4406-49c1-9e59-b5074339ce3e": {
+		"grenade_count": 41,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 173.24371337890625,
@@ -491,7 +532,8 @@
 			"armor": 0
 		}
 	},
-	"42": {
+	"05c53dcd-f05f-4d5c-b3aa-36383b6ccf1c": {
+		"grenade_count": 42,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1209.0880126953125,
@@ -503,7 +545,8 @@
 			"armor": 4
 		}
 	},
-	"43": {
+	"5c900046-ddf8-4b5f-8d7f-830f795467dd": {
+		"grenade_count": 43,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 807.9427490234375,
@@ -515,7 +558,8 @@
 			"armor": 6
 		}
 	},
-	"44": {
+	"75ad5bc7-6cbe-4b25-80d6-f535f0529bb7": {
+		"grenade_count": 44,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 572.2401733398438,
@@ -527,7 +571,8 @@
 			"armor": 13
 		}
 	},
-	"45": {
+	"261ca38f-9953-4a9f-8faa-34fdd8962c6a": {
+		"grenade_count": 45,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1217.500732421875,
@@ -539,7 +584,8 @@
 			"armor": 13
 		}
 	},
-	"46": {
+	"1d02711a-77b7-4470-855f-9b80e842f7d0": {
+		"grenade_count": 46,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1224.0130615234375,
@@ -551,7 +597,8 @@
 			"armor": 0
 		}
 	},
-	"47": {
+	"7ba87f6a-b619-4526-b203-ae6796d04356": {
+		"grenade_count": 47,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 713.2872314453125,
@@ -563,7 +610,8 @@
 			"armor": 6
 		}
 	},
-	"48": {
+	"e93d70e7-2717-4407-b5d7-d6b5f5b7ff86": {
+		"grenade_count": 48,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1613.7764892578125,
@@ -575,7 +623,8 @@
 			"armor": 1
 		}
 	},
-	"49": {
+	"22b9877f-e2f9-4ae5-92df-8b2155e62e7e": {
+		"grenade_count": 49,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1233.4012451171875,
@@ -587,7 +636,8 @@
 			"armor": 0
 		}
 	},
-	"50": {
+	"0b5871ec-e0ed-4584-874b-2bd99cb29c09": {
+		"grenade_count": 50,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1214.5419921875,
@@ -599,7 +649,8 @@
 			"armor": 4
 		}
 	},
-	"51": {
+	"5099bdf8-8aa9-4154-9590-c1860a1cc2ea": {
+		"grenade_count": 51,
 		"grenade_type": "hegrenade",
 		"coordinates": {
 			"x": 1461.556884765625,

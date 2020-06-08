@@ -1,5 +1,6 @@
 var fs = require("fs");
 var demofile = require("demofile");
+var uuid = require("uuid/v4");
 
 const events = {
   demo: {
@@ -71,7 +72,8 @@ fs.readFile('demo/test.dem', (err, buffer) => {
   };
 
 	// JSON variables
-  let grenade_number = 0;
+  let unique_grenade_ID = null;
+  let grenadeCount = 0;
   let utilityData = {};
   let demoInfo = {};
 
@@ -80,28 +82,32 @@ fs.readFile('demo/test.dem', (err, buffer) => {
     console.log('=> parsing...');
 
     demoInfo = {
-      'Demo information': demoFile.header
+      'Header': demoFile.header
     };
   });
 
 	// Grenade detonations
 	demoFile.gameEvents.on(events.detonations.HEGRENADE_DETONATE, function(e) {
-    grenade_number++; // Add one to the grenade count
+    grenadeCount++; // Add one to the grenade count
+    unique_grenade_ID = uuid(); // Random generated ID
     
     // Data array
-		utilityData[grenade_number] = {
-      'grenade_type': '',
-      'coordinates': {},
-      'damage': {}
+		utilityData[unique_grenade_ID] = {
+      'grenade_count': '' [{
+        'grenade_type': '',
+        'coordinates': {},
+        'damage': {}
+      }]
     };
     
-    utilityData[grenade_number]['grenade_type'] = 'hegrenade'; // Adds grenade type
-    utilityData[grenade_number]['coordinates'] = {x: e.x, y: e.y, z: e.z}; // Adds coordinates for detonation
-    utilityData[grenade_number]['damage'] = {health: 0, armor: 0}; // Dummy data for damage done. Remains zero of no damage is done
+    utilityData[unique_grenade_ID]['grenade_count'] = grenadeCount; // Adds grenade count
+    utilityData[unique_grenade_ID]['grenade_type'] = 'hegrenade'; // Adds grenade type
+    utilityData[unique_grenade_ID]['coordinates'] = {x: e.x, y: e.y, z: e.z}; // Adds coordinates for detonation
+    utilityData[unique_grenade_ID]['damage'] = {health: 0, armor: 0}; // Dummy data for damage done. Remains zero of no damage is done
 
     demoFile.gameEvents.on(events.game.PLAYER_HURT, function(e){
       if (e.weapon = 'weapon_hegrenade'){
-        utilityData[grenade_number]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Replaces dummy data, if the grenade did any damage
+        utilityData[unique_grenade_ID]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Replaces dummy data, if the grenade did any damage
       };
     });
   });

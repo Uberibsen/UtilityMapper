@@ -1,5 +1,5 @@
 {
-	"Demo header": {
+	"Header": {
 		"magic": "HL2DEMO",
 		"protocol": 4,
 		"networkProtocol": 13749,
