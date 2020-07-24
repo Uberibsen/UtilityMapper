@@ -1,11 +1,7 @@
 import os
 import json
-import csv
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pandas.io.json import json_normalize
 
 def main():
     print("CS:GO Grenade Heatmap Plotter")
@@ -20,18 +16,13 @@ def main():
     x_coor = []
     y_coor = []
     img = plt.imread('maps/de_inferno.png')
-
-    # Opens CSV data file
-    with open ('csv/utility.csv', 'r') as csv_file:
-        csv_data = csv.reader(csv_file, delimiter=',', quotechar='|')
-        for data in csv_data:
-            # Writes data and removes quotations
-            x_coor.append(data[3].strip('"'))
-            y_coor.append(data[4].strip('"'))
-
-    # Removes first unneeded string element
-    del x_coor[0]
-    del y_coor[0]
+    
+    # Opens JSON data file
+    with open('json/data.json') as json_file:
+        data = json.load(json_file)
+        for coordinate in data["grenades"]:
+            x_coor.append(coordinate['position']['x'])
+            y_coor.append(coordinate['position']['y'])
 
     # Used to convert absolute x coordinates to for minimap image resolution
     def pointx_to_resolutionx(xinput, startX = -1960, endX=2797, resX = 1024): # Only works for de_inferno

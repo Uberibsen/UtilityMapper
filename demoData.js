@@ -1,32 +1,5 @@
 var fs = require("fs");
 var demofile = require("demofile");
-var uuid = require("uuid/v4");
-
-const events = {
-  demo: {
-    GAME_END: "end",
-    GAME_START: "start"
-  },
-
-  game: {
-    PLAYER_HURT: "player_hurt",
-    PLAYER_BLIND: "player_blind",
-  },
-
-  detonations: {
-    HEGRENADE_DETONATE: "hegrenade_detonate",
-    FLASHBANG_DETONATE: "flashbang_detonate",
-    SMOKE_DETONATE: "smokegrenade_detonate",
-    MOLOTOV_DETONATE: "molotov_detonate"
-  },
-
-  grenades: {
-    HEGRENADE: "weapon_hegrenade",
-    FLASHBANG: "weapon_flashbang",
-    SMOKE: "weapon_smokegrenade",
-    MOLOTOV: "weapon_molotov"
-  }
-}
 
 // File valdiation declarations
 var fileAmount = [];
@@ -65,71 +38,54 @@ fs.readdir(demoFilepath, function (err, files) {
 });
 
 fs.readFile('demo/test.dem', (err, buffer) => {
-	const demoFile = new demofile.DemoFile();
+  const demoFile = new demofile.DemoFile();
 	if (err) {
 		console.log(err);
 		return;
-  };
-
-	// JSON variables
-  let unique_grenade_ID = null;
+  };  
+    
+  let mapData = {};
   let grenadeCount = 0;
-  let utilityData = {};
-  let demoInfo = {};
 
-	// Demo start
-	demoFile.on(events.demo.GAME_START, function(e) {
+  // Gets rewritten for every round
+  let roundData = generateNewRoundData();
+
+  demoFile.on("start", () => {
     console.log('=> parsing...');
 
-    demoInfo = {
-      'Header': demoFile.header
-    };
+    mapData.map = demoFile.header.mapName;
+    mapData.totalTime = demoFile.header.playbackTime;
+    mapData.tickRate = demoFile.tickRate;
   });
 
-	// Grenade detonations
-	demoFile.gameEvents.on(events.detonations.HEGRENADE_DETONATE, function(e) {
+  demoFile.gameEvents.on("hegrenade_detonate", function(e) {
     grenadeCount++; // Add one to the grenade count
-    unique_grenade_ID = uuid(); // Random generated ID
-    
-    // Data array
-		utilityData[unique_grenade_ID] = {
-      'grenade_count': '' [{
-        'grenade_type': '',
-        'coordinates': {},
-        'damage': {}
-      }]
-    };
-    
-    utilityData[unique_grenade_ID]['grenade_count'] = grenadeCount; // Adds grenade count
-    utilityData[unique_grenade_ID]['grenade_type'] = 'hegrenade'; // Adds grenade type
-    utilityData[unique_grenade_ID]['coordinates'] = {x: e.x, y: e.y, z: e.z}; // Adds coordinates for detonation
-    utilityData[unique_grenade_ID]['damage'] = {health: 0, armor: 0}; // Dummy data for damage done. Remains zero of no damage is done
-
-    demoFile.gameEvents.on(events.game.PLAYER_HURT, function(e){
-      if (e.weapon = 'weapon_hegrenade'){
-        utilityData[unique_grenade_ID]['damage'] = {health: e.dmg_health, armor: e.dmg_armor}; // Replaces dummy data, if the grenade did any damage
-      };
+    roundData.grenades.push({
+      ID: grenadeCount, // Unique grenade ID
+      type: "HE Grenade", // Grenade type
+      position: {x: e.x, y: e.y, z: e.z} // Detonation coordinates
     });
   });
 
-  // Match over
-  demoFile.on(events.demo.GAME_END, function(err) {
+  demoFile.on("end", function(err) {
+
+    let combinedData = Object.assign(mapData, roundData)
     console.log("<= Parsed");
 
-    var utilityExport = JSON.stringify(utilityData, null, '\t'); // Prepares the utility array for JSON export
-    var demoExport = JSON.stringify(demoInfo, null, '\t'); // Prepares the demo info array for JSON export
-    
-    fs.writeFile("json/utility.json", utilityExport, function() { // Writes JSON  
-      fs.writeFile("json/demo.json", demoExport, function(err) {
-        if(err) {
-          return console.log(err);
-        } else {
-          console.log("Files saved successfully!");
-        };
-      });   
+    var utilityExport = JSON.stringify(combinedData, null, '\t'); // Prepares the utility array for JSON export
+    fs.writeFile("json/data.json", utilityExport, function(err) {
+      if(err) {
+        return console.log(err);
+      } else {
+        console.log("Files saved successfully!");
+      };  
     });
   });
-
   demoFile.parse(buffer);
-
 });
+
+function generateNewRoundData() {
+  return {
+    grenades: []
+  };
+};
