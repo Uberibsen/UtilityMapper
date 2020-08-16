@@ -73,7 +73,7 @@ fs.readFile('demo/test.dem', (err, buffer) => {
     console.log("<= Parsed");
 
     var utilityExport = JSON.stringify(combinedData, null, '\t'); // Prepares the utility array for JSON export
-    fs.writeFile("json/data.json", utilityExport, function(err) {
+    fs.writeFile("data/data.json", utilityExport, function(err) {
       if(err) {
         return console.log(err);
       } else {

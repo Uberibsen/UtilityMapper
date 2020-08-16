@@ -22,16 +22,19 @@ The exported `json` file is then read by the `heatmapExport.py` file. This file 
 -  [x] JSON parsing from JS
 -  [x] JSON data extraction in Python
 -  [x] Image export
-- [ ] Multi map support
+- [x] Multi map support
 	- [x] de_inferno
-	- [ ] de_dust2
-	- [ ] de_train
-	- [ ] de_mirage
-	- [ ] de_overpass
-	- [ ] de_cache
+	- [x] de_dust2
+	- [x] de_train
+	- [x] de_mirage
+	- [x] de_overpass
+	- [x] de_cache
 - [ ] Multi grenade type support
 	- [x] HE Grenade
 	- [ ] Flashbang
 	- [ ] Smoke
 	- [ ] Molotov/Fire
 - [ ] Grenade damage mapping
+
+### Special thanks
+Thank you to Bill Freeman for providing the values for converting global coordinates to the range of the image resolution. See his project [here](https://www.kaggle.com/billfreeman44/finding-classic-smokes-by-t-side-on-mirage)

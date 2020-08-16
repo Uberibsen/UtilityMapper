@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "map": "de_mirage",
+      "values": {
+        "endX": 1912,
+        "endY": 1682,
+        "resX": 1024,
+        "resY": 1024,
+        "startX": -3217,
+        "startY": -3401
+      }
+    },
+    {
+      "map": "de_inferno",
+      "values": {
+        "endX": 2797,
+        "endY": 3800,
+        "resX": 1024,
+        "resY": 1024,
+        "startX": -1960,
+        "startY": -1062
+      }
+    },
+    {
+      "map": "de_dust2",
+      "values": {
+        "endX": 2127,
+        "endY": 3455,
+        "resX": 1024,
+        "resY": 1024,
+        "startX": -2486,
+        "startY": -1150
+      }
+    },
+    {
+      "map": "de_train",
+      "values": {
+        "endX": 2262,
+        "endY": 2447,
+        "resX": 1024,
+        "resY": 1024,
+        "startX": -2436,
+        "startY": -2469
+      }
+    },
+    {
+      "map": "de_overpass",
+      "values": {
+        "endX": 503,
+        "endY": 1740,
+        "resX": 1024,
+        "resY": 1024,
+        "startX": -4820,
+        "startY": -3591
+      }
+    },
+    {
+      "map": "de_cache",
+      "values": {
+        "endX": 3752,
+        "endY": 3187,
+        "resX": 1024,
+        "resY": 1024,
+        "startX": -2031,
+        "startY": -2240
+      }
+    },
+    {
+      "map": "de_cbble",
+      "values": {
+        "endX": 2282,
+        "endY": 3032,
+        "resX": 1024,
+        "resY": 1024,
+        "startX": -3819,
+        "startY": -3073
+      }
+    }
+  ]
+}
