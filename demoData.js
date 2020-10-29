@@ -63,6 +63,24 @@ fs.readFile('demo/test.dem', (err, buffer) => {
     roundData.grenades.push({
       ID: grenadeCount, // Unique grenade ID
       type: "HE Grenade", // Grenade type
+      position: {x: e.x, y: e.y, z: e.z}, // Detonation coordinates
+    });
+  });
+  
+  demoFile.gameEvents.on("flashbang_detonate", function(e) {
+    grenadeCount++; // Add one to the grenade count
+    roundData.grenades.push({
+      ID: grenadeCount, // Unique grenade ID
+      type: "Flashbang", // Grenade type
+      position: {x: e.x, y: e.y, z: e.z} // Detonation coordinates
+    });
+  });
+
+  demoFile.gameEvents.on("smokegrenade_detonate", function(e) {
+    grenadeCount++; // Add one to the grenade count
+    roundData.grenades.push({
+      ID: grenadeCount, // Unique grenade ID
+      type: "Smoke", // Grenade type
       position: {x: e.x, y: e.y, z: e.z} // Detonation coordinates
     });
   });
