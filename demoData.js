@@ -2,11 +2,11 @@ var fs = require("fs");
 var demofile = require("demofile");
 
 // File valdiation declarations
-var fileAmount = [];
-const allowedFile = ".dem";
-const demoFilepath = "demo/";
+var file_amount = [];
+const allowed_file = ".dem";
+const demofile_path = "demo/";
 
-fs.readdir(demoFilepath, function (err, files) {
+fs.readdir(demofile_path, function (err, files) {
   if (err) {
     console.log(err);
     return;
@@ -19,15 +19,15 @@ fs.readdir(demoFilepath, function (err, files) {
 
   files.forEach(file => { // For each file found, push them into an array
 
-    fileAmount.push(file);
+    file_amount.push(file);
 
-    if (fileAmount.length > 1){ // Checks if there is multiple files in the folder
+    if (file_amount.length > 1){ // Checks if there is multiple files in the folder
       console.log("Too many files. Only use one file.") 
       process.exit();
     };
 
-    for (i = 0; i < fileAmount.length; i++) { // For each file in the array...
-      if (fileAmount[i].includes(allowedFile)){ // ...check if the file is the correct file type
+    for (i = 0; i < file_amount.length; i++) { // For each file in the array...
+      if (file_amount[i].includes(allowed_file)){ // ...check if the file is the correct file type
         console.log("Demo file loaded.");
       } else {
         console.log("Wrong fileformat. Use .dem files only.")
@@ -44,42 +44,51 @@ fs.readFile('demo/test.dem', (err, buffer) => {
 		return;
   };  
     
-  let mapData = {};
-  let grenadeCount = 0;
+  let map_data = {};
+  let grenade_count = 0;
 
   // Gets rewritten for every round
-  let roundData = generateNewRoundData();
+  let round_data = generateNewround_data();
 
   demoFile.on("start", () => {
     console.log('=> parsing...');
 
-    mapData.map = demoFile.header.mapName;
-    mapData.totalTime = demoFile.header.playbackTime;
-    mapData.tickRate = demoFile.tickRate;
+    map_data.map = demoFile.header.mapName;
+    map_data.totalTime = demoFile.header.playbackTime;
+    map_data.tickRate = demoFile.tickRate;
   });
 
   demoFile.gameEvents.on("hegrenade_detonate", function(e) {
-    grenadeCount++; // Add one to the grenade count
-    roundData.grenades.push({
-      ID: grenadeCount, // Unique grenade ID
+    grenade_count++; // Add one to the grenade count
+    round_data.grenades.push({
+      ID: grenade_count, // Unique grenade ID
       type: "HE Grenade", // Grenade type
       position: {x: e.x, y: e.y, z: e.z}, // Detonation coordinates
     });
   });
   
   demoFile.gameEvents.on("flashbang_detonate", function(e) {
-    grenadeCount++; // Add one to the grenade count
-    roundData.grenades.push({
-      ID: grenadeCount, // Unique grenade ID
+    grenade_count++; // Add one to the grenade count
+    round_data.grenades.push({
+      ID: grenade_count, // Unique grenade ID
       type: "Flashbang", // Grenade type
       position: {x: e.x, y: e.y, z: e.z} // Detonation coordinates
     });
   });
 
+  demoFile.gameEvents.on("inferno_startburn", function(e) {
+    grenade_count++; // Add one to the grenade count
+    round_data.grenades.push({
+      ID: grenade_count, // Unique grenade ID
+      type: "Molotov", // Grenade type
+      position: {x: e.x, y: e.y, z: e.z} // Detonation coordinates
+    });
+  });
+
   demoFile.gameEvents.on("smokegrenade_detonate", function(e) {
-    grenadeCount++; // Add one to the grenade count
-    roundData.grenades.push({
-      ID: grenadeCount, // Unique grenade ID
+    grenade_count++; // Add one to the grenade count
+    round_data.grenades.push({
+      ID: grenade_count, // Unique grenade ID
       type: "Smoke", // Grenade type
       position: {x: e.x, y: e.y, z: e.z} // Detonation coordinates
     });
@@ -87,11 +96,11 @@ fs.readFile('demo/test.dem', (err, buffer) => {
 
   demoFile.on("end", function(err) {
 
-    let combinedData = Object.assign(mapData, roundData)
+    let combined_data = Object.assign(map_data, round_data)
     console.log("<= Parsed");
 
-    var utilityExport = JSON.stringify(combinedData, null, '\t'); // Prepares the utility array for JSON export
-    fs.writeFile("data/data.json", utilityExport, function(err) {
+    var utility_export = JSON.stringify(combined_data, null, '\t'); // Prepares the utility array for JSON export
+    fs.writeFile("data/data.json", utility_export, function(err) {
       if(err) {
         return console.log(err);
       } else {
@@ -102,7 +111,7 @@ fs.readFile('demo/test.dem', (err, buffer) => {
   demoFile.parse(buffer);
 });
 
-function generateNewRoundData() {
+function generateNewround_data() {
   return {
     grenades: []
   };

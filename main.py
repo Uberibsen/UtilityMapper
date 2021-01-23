@@ -7,7 +7,7 @@ def main():
     print("CS:GO Grenade Heatmap Plotter")
     while True:
         path = ('data/')
-        acceptedFileExtension = (".json")
+        accepted_file_extension = (".json")
         input("Press Enter to continue.")
 
         if len(os.listdir(path)) == 0: # Checks if the 'data' folder is empty
@@ -21,7 +21,7 @@ def main():
             for filename in files:
                 filename, file_extension = os.path.splitext(filename)          
         try:
-            if file_extension in acceptedFileExtension:
+            if file_extension in accepted_file_extension:
                 break
             else:
                 print("\nWrong file format.")
@@ -30,15 +30,15 @@ def main():
 
     x_coor = []
     y_coor = []
-    supportedMaps = ["de_inferno", "de_mirage", "de_dust2", "de_train", "de_overpass", "de_cache", "de_cbble"]
+    supported_maps = ["de_inferno", "de_mirage", "de_dust2", "de_train", "de_overpass", "de_cache", "de_cbble"]
     
     # Opens JSON data file
     with open('data/data.json') as json_file:
         data = json.load(json_file)
-        grenadeSelectArray = ["HE Grenade", "Flashbang", "Smoke"]  
-        playedMap = data["map"]
+        grenade_select = ["HE Grenade", "Flashbang", "Smoke", "Molotov"]  
+        played_map = data["map"]
 
-        if playedMap in supportedMaps: # Checks if the data is from a supported map
+        if played_map in supported_maps: # Checks if the data is from a supported map
             pass
         else:
             input("Map not supported. Press Enter to close program.")
@@ -46,20 +46,20 @@ def main():
 
         while True:
             try:
-                print("\n1. HE grenades\n2. Flashbangs\n3. Smoke grenades\n")
-                userInput = int(input("Please select the grenade type you want to map (1, 2, 3) "))   
+                print("\n1. HE grenades\n2. Flashbangs\n3. Smoke grenades\n4. Molotov")
+                user_input = int(input("Please select the grenade type you want to map (1, 2, 3, 4) "))   
             except ValueError:
                 print("Not an integer! Try again.\n")
                 continue
-            if userInput < 1 or userInput > 3:
+            if user_input < 1 or user_input > 4:
                 print("Input out of range! Try again.\n")
                 continue
             else:
                 break 
-        print("Plotting grenade type: " + grenadeSelectArray[userInput - 1])
+        print("Plotting grenade type: " + grenade_select[user_input - 1])
 
         for coordinate in data["grenades"]:
-            if grenadeSelectArray[userInput - 1] in coordinate["type"]: # Plots the grenade type selected
+            if grenade_select[user_input - 1] in coordinate["type"]: # Plots the grenade type selected
                 x_coor.append(coordinate['position']['x']) # Appends x coordinates
                 y_coor.append(coordinate['position']['y']) # Appends y coordinates
 
@@ -83,35 +83,35 @@ def main():
         youtput = ((yinput / abs(sizeY)) * resY)
         return resY - youtput
 
-    def coordinateProcessor(mapCount): # Rounds every element in coordinate array to nearest whole and converts coordinate to number in range of the image resolution 
+    def coordinate_processor(map_count): # Rounds every element in coordinate array to nearest whole and converts coordinate to number in range of the image resolution 
         for i in range (0, len(x_coor)):
             x_coor[i] = pointx_to_resolutionx(int(float(x_coor[i])),
-                (mapsInfo["data"][mapCount]["values"]["startX"]),
-                (mapsInfo["data"][mapCount]["values"]["endX"]),
-                (mapsInfo["data"][mapCount]["values"]["resX"]))
+                (mapsInfo["data"][map_count]["values"]["startX"]),
+                (mapsInfo["data"][map_count]["values"]["endX"]),
+                (mapsInfo["data"][map_count]["values"]["resX"]))
         for i in range (0, len(y_coor)):
             y_coor[i] = pointy_to_resolutiony(int(float(y_coor[i])),
-                (mapsInfo["data"][mapCount]["values"]["startY"]),
-                (mapsInfo["data"][mapCount]["values"]["endY"]),
-                (mapsInfo["data"][mapCount]["values"]["resY"]))
+                (mapsInfo["data"][map_count]["values"]["startY"]),
+                (mapsInfo["data"][map_count]["values"]["endY"]),
+                (mapsInfo["data"][map_count]["values"]["resY"]))
 
     with open('json/maps.json') as map_file: # Loads values used for coordinate conversion
         mapsInfo = json.load(map_file)
 
-    mapCount = 0
-    for currentMap in supportedMaps:
-        if currentMap in supportedMaps[mapCount]:
-            img = plt.imread('maps/' + str(currentMap) + '.png')
-            coordinateProcessor(mapCount + 1)
+    map_count = 0
+    for current_map in supported_maps:
+        if current_map in supported_maps[map_count]:
+            img = plt.imread('maps/' + str(current_map) + '.png')
+            coordinate_processor(map_count + 1)
             break
         else:
-            mapCount = mapCount + 1
+            map_count = map_count + 1
             continue
 
     ### Initiate plots and draw ###
-    totalGrenades = len(x_coor) # Total amount of grenades
-    matchTime = (int(data["totalTime"] / 60)) # Converts matchtime in second to minutes
-    tickRate = data["tickRate"] # Server tickrate
+    total_grenades = len(x_coor) # Total amount of grenades
+    match_time = (int(data["totalTime"] / 60)) # Converts match_time in second to minutes
+    tick_rate = data["tickRate"] # Server tickrate
 
     heatmap = sns.kdeplot(x_coor, y_coor,
         levels = 100, 
@@ -121,7 +121,7 @@ def main():
         shade_lowest = False,
         antialiased = True)
 
-    grenadePlot = sns.scatterplot(x_coor, y_coor,
+    grenade_plot = sns.scatterplot(x_coor, y_coor,
         marker = "o", 
         s = 20, 
         color ="Blue")
@@ -134,17 +134,17 @@ def main():
     props = dict(boxstyle='round', facecolor='wheat', alpha = 0.75)
 
     # Text box text
-    textstr = '\n'.join((
-        "Map: " + str(playedMap), # Map
-        "Time: " + str(matchTime) + " min", # Match time
-        "Tick: " + str(tickRate), # Server tickrate
-        "Type: " + grenadeSelectArray[userInput - 1], # Grenade type
-        "No.: " + str(totalGrenades) # Total number of grenades
+    text_str = '\n'.join((
+        "Map: " + str(played_map), # Map
+        "Time: " + str(match_time) + " min", # Match time
+        "Tick: " + str(tick_rate), # Server tickrate
+        "Type: " + grenade_select[user_input - 1], # Grenade type
+        "No.: " + str(total_grenades) # Total number of grenades
     ))
 
     # Plot text box
-    grenadePlot.text(0.02, 0.98, textstr,
-        transform = grenadePlot.transAxes,
+    grenade_plot.text(0.02, 0.98, text_str,
+        transform = grenade_plot.transAxes,
         fontsize = 10,
         verticalalignment = 'top',
         bbox = props)
